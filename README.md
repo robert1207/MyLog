@@ -78,6 +78,8 @@ you can find the macro at “MyLogSrc.pri” or “MyLogLib.pri”
 ```
 8. Log  example on console
 
+![out-put-example](https://github.com/robert1207/MyLog/blob/master/doc/out_put_example.png)
+
 # Making your own Logger
 1. Method of making a self-implemented logger
 inherit this interface and make your own logger.

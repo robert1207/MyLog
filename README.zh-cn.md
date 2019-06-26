@@ -78,6 +78,8 @@ D << "Types:" << QString("String") << QChar('x') << QRect(0, 10, 50, 40);
 ```
 8. 输出效果
 
+![out-put-example](https://github.com/robert1207/MyLog/blob/master/doc/out_put_example.png)
+
 # 实现自己的打印记录器
 1. 继承接口实现自己的打印记录器
 接口类在文件”logger\_interface.h”中。
