@@ -32,6 +32,11 @@ include($$PWD/my_lib/MyLog/MyLogLib.pri)
 ```
 2. Init for file log
 ```cpp
+QCoreApplication::setApplicationName("myappname");
+QCoreApplication::setApplicationVersion("0.0.1");
+QCoreApplication::setOrganizationName("com.company.myappname"); //set app name for log-file-path
+QCoreApplication::setOrganizationDomain("com.company.myappname");
+
 MyLogNS::FileLogger *fileLog = new MyLogNS::FileLogger();
 int result = fileLog->open_log_file_at_dir("log");
 if(result != 0) {

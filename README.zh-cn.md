@@ -32,6 +32,11 @@ include($$PWD/my_lib/MyLog/MyLogLib.pri)
 ```
 2. 安装文件打印记录器
 ```cpp
+QCoreApplication::setApplicationName("myappname");
+QCoreApplication::setApplicationVersion("0.0.1");
+QCoreApplication::setOrganizationName("com.company.myappname"); //设置程序名称，保存文件时候用到
+QCoreApplication::setOrganizationDomain("com.company.myappname");
+
 MyLogNS::FileLogger *fileLog = new MyLogNS::FileLogger();
 int result = fileLog->open_log_file_at_dir("log");
 if(result != 0) {

@@ -20,27 +20,29 @@ message("MyLog_src_attached")
 #DEFINES += MYLOG_NO_D_OUTPUT
 #DEFINES += MYLOG_NO_E_OUTPUT
 
-INCLUDEPATH += $$PWD
+INCLUDEPATH += $$PWD/src/
 
 SOURCES += \
-        $$PWD/console_logger.cpp \
-        $$PWD/file_logger.cpp \
-        $$PWD/log_level.cpp \
-        $$PWD/my_log.cpp \
-        $$PWD/logger_interface.cpp 
+        $$PWD/src/console_logger.cpp \
+        $$PWD/src/file_logger.cpp \
+        $$PWD/src/log_level.cpp \
+        $$PWD/src/my_log.cpp \
+        $$PWD/src/logger_interface.cpp
 
 HEADERS += \
-        $$PWD/console_logger.h \
-        $$PWD/file_logger.h \
-        $$PWD/my_log.h \
-        $$PWD/log_level.h \
-        $$PWD/logger_interface.h \
-        $$PWD/printf_color.h \
-        $$PWD/singletone/call_once.h \
-        $$PWD/singletone/singleton.h \
-        $$PWD/my_log_export.h
+        $$PWD/src/console_logger.h \
+        $$PWD/src/file_logger.h \
+        $$PWD/src/my_log.h \
+        $$PWD/src/log_level.h \
+        $$PWD/src/logger_interface.h \
+        $$PWD/src/printf_color.h \
+        $$PWD/src/singletone/call_once.h \
+        $$PWD/src/singletone/singleton.h \
+        $$PWD/src/my_log_export.h
 
 OTHER_FILES += \
-    $$PWD/version_changes \
-    $$PWD/readme \
-    $$PWD/todo
+        $$PWD/todo \
+        $$PWD/version_changes \
+        $$PWD/LICENSE \
+        $$PWD/README.md \
+        $$PWD/README.zh-cn.md

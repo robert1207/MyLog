@@ -20,11 +20,19 @@ message("MyLog_lib_been_attached")
 #DEFINES += MYLOG_NO_D_OUTPUT
 #DEFINES += MYLOG_NO_E_OUTPUT
 
-INCLUDEPATH += $$PWD/
+INCLUDEPATH += $$PWD/src/
 
 HEADERS += \
-        $$PWD/my_log_export.h \
-        $$PWD/logger_interface.h
+        $$PWD/src/my_log_export.h \
+        $$PWD/src/logger_interface.h
 
 LIBS += \
-    -L$$PWD -lMyLog
+        -L$$PWD -lMyLog
+
+OTHER_FILES += \
+        $$PWD/todo \
+        $$PWD/version_changes \
+        $$PWD/LICENSE \
+        $$PWD/README.md \
+        $$PWD/README.zh-cn.md
+
