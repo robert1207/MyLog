@@ -21,9 +21,9 @@
 
 #define MyLogIns Singleton<MyLogNS::MyLog>::instance()
 
-#define I MyLogNS::MyLog::Helper().set_file_line(__FILE__, __LINE__).info()
-#define D MyLogNS::MyLog::Helper().set_file_line(__FILE__, __LINE__).debug()
-#define E MyLogNS::MyLog::Helper().set_file_line(__FILE__, __LINE__).error()
+#define I MyLogNS::MyLog::Helper().set_file_line(__FILE__, __LINE__, Q_FUNC_INFO).info()
+#define D MyLogNS::MyLog::Helper().set_file_line(__FILE__, __LINE__, Q_FUNC_INFO).debug()
+#define E MyLogNS::MyLog::Helper().set_file_line(__FILE__, __LINE__, Q_FUNC_INFO).error()
 
 #define MYLOG_NO_LOG_MACRO  MyLogNS::MyLog::Helper().no_log()
 

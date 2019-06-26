@@ -50,9 +50,10 @@ public:
         {}
         ~Helper();
         //making sure the single 'Helper' object is hold itself's log settings at multi-thread
-        inline Helper& set_file_line(const char *file, int line) {
+        inline Helper& set_file_line(const char *file, int line, const char *func_name) {
             m_file_name = file;
             m_line_number = line;
+            m_func_name = func_name;
             return *this;
         }
 
@@ -69,6 +70,7 @@ public:
         LogLevel m_log_level;
         const char *m_file_name;
         int m_line_number;
+        const char *m_func_name;
 
         bool m_no_log;
     };
@@ -77,7 +79,9 @@ public:
     bool is_enable_auto_new_line;
     bool is_show_level_str;
     bool is_show_timestamp;
-    bool is_show_file_name_and_line_number;
+    bool is_show_file_name;
+    bool is_show_function_name;
+    bool is_show_line_number;
 
     int mutex_log_count;
     QMutex *mutex;
@@ -88,10 +92,11 @@ public:
     void log_out(const QString &msg);
     void do_write(LogLevel log_level, const QString &msg);
 
-    inline void set_file_line(LogLevel level, const char *file, int line) {
+    inline void set_file_line(LogLevel level, const char *file, int line, const char *func_name) {
         m_log_level = level;
         m_file_name = file;
         m_line_number = line;
+        m_func_name = func_name;
     }
 
 private:
@@ -100,6 +105,7 @@ private:
     LogLevel m_log_level;
     const char *m_file_name;
     int m_line_number;
+    const char *m_func_name;
 
     QList<LoggerInterface *> m_logger_list;
 

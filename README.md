@@ -1,8 +1,8 @@
 MyLog is a log-lib for Qt applications. MyLog is stable and easy to use.
 
-*Read this in other languages: [English](README.md), [简体中文](README.zh-cn.md),*
+*Read this in other languages: [English][1], [简体中文][2]*
 
-Features:
+# Features
 1. Colorful text console output ;
 2. Support log levels of "info debug error";
 3. Multi-thread safe;
@@ -12,14 +12,15 @@ Features:
 7. MyLog is an open-source project;
 8. Logging strings includes "level", "timestamp", "code file name and line number"
 9. Using MyLog as easy as "qDebug()"
+10. Support log code-file\_name, function-name, line-number
 
-Usage:
+# Usage
 you should init MyLog before you log-out any string.
 e.g. Init the MyLog at the main function.
 Note:
 Don't start a thread which using "MyLog" to log-out at main function directly
 
-0.Include the lib or src at your xxx.pro
+1.Include the lib or src at your xxx.pro
 ```Makefile
 #using MyLog as the src (using your own path)
 #include($$PWD/my_lib/MyLog/MyLogSrc.pri)
@@ -27,11 +28,11 @@ Don't start a thread which using "MyLog" to log-out at main function directly
 #using MyLog as a lib (using your own path)
 include($$PWD/my_lib/MyLog/MyLogLib.pri)
 ```
-1. Include header
+2. Include header
 ```cpp
 #include "my_log_export.h"
 ```
-2. Init for file log
+3. Init for file log
 ```cpp
 QCoreApplication::setApplicationName("myappname");
 QCoreApplication::setApplicationVersion("0.0.1");
@@ -46,19 +47,21 @@ if(result != 0) {
 qDebug("log file path=%s", fileLog->get_log_file_abs_path());
 MyLogIns.installer_logger(fileLog);
 ```
-3. Init for console log
+4. Init for console log
 ```cpp
 MyLogIns.installer_logger(new MyLogNS::ConsoleLogger());
 ```
-4. Features control variables
+5. Features control variables
 using the variables when you need change the features only.
 ```cpp
 MyLogIns.is_enable_auto_new_line= true;     //default is true
 MyLogIns.is_show_level_str= true;           //default is true
 MyLogIns.is_show_timestamp= true;           //default is true
-MyLogIns.is_show_file_name_and_line_number= true;    //default is true
+MyLogIns.is_show_file_name= true;           //default is false
+MyLogIns.is_show_function_name= true;       //default is true
+MyLogIns.is_show_line_number= true;         //default is true
 ```
-5. Write log (use it as the way using the "qDebug()")
+6. Write log (use it as the way using the "qDebug()")
 ```cpp
 I << "str value=" << 1;     //log info
 D << "str value=" << 2;     //log debug
@@ -66,7 +69,17 @@ E << "str value=" << 3;     //log error
 D << "Date:" << QDate::currentDate();
 D << "Types:" << QString("String") << QChar('x') << QRect(0, 10, 50, 40);
 ```
-6. Method of making a self-implemented logger
+7. Switch about each level of log
+you can find the macro at “MyLogSrc.pri” or “MyLogLib.pri”
+```Makefile
+#DEFINES += MYLOG_NO_I_OUTPUT
+#DEFINES += MYLOG_NO_D_OUTPUT
+#DEFINES += MYLOG_NO_E_OUTPUT
+```
+8. Log  example on console
+
+# Making your own Logger
+1. Method of making a self-implemented logger
 inherit this interface and make your own logger.
 you can find this inferface at file "logger\_interface.h"
 ```cpp
@@ -81,7 +94,7 @@ public:
     virtual void write(LogLevel level, const QString &msg, bool is_shift_to_next_line) = 0;
 };
 ```
-7. Create your own logger
+2. Create your own logger
 ```cpp
 #include "logger_interface.h"
 class NetLogger : public MyLogNS::LoggerInterface
@@ -93,14 +106,10 @@ public:
     virtual void write(MyLogNS::LogLevel level, const QString &msg, bool is_shift_to_next_line);
 };
 ```
-8. Using your own logger
+3. Using your own logger
 ```cpp
 MyLogIns.installer_logger(new  NetLogger());
 ```
-9. Switch about each level of log
-you can find the macro at “MyLogSrc.pri” or “MyLogLib.pri”
-```Makefile
-#DEFINES += MYLOG_NO_I_OUTPUT
-#DEFINES += MYLOG_NO_D_OUTPUT
-#DEFINES += MYLOG_NO_E_OUTPUT
-```
+
+[1]:	README.md
+[2]:	README.zh-cn.md

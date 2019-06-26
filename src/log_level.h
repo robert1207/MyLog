@@ -25,9 +25,9 @@ enum LogLevel {
     Error
 };
 
-static const char level_info[]  = "INFO  ";
-static const char level_debug[] = "DEBUG ";
-static const char level_error[] = "ERROR ";
+static const char level_info[]  = "INFO ";
+static const char level_debug[] = "DEBUG";
+static const char level_error[] = "ERROR";
 
 extern const char* LevelToText(LogLevel level);
 

@@ -31,7 +31,9 @@ MyLog::MyLog() :
     is_enable_auto_new_line(true),
     is_show_level_str(true),
     is_show_timestamp(true),
-    is_show_file_name_and_line_number(true),
+    is_show_file_name(false),
+    is_show_function_name(true),
+    is_show_line_number(true),
     mutex_log_count(0)
 {
     mutex = new QMutex();
@@ -71,7 +73,7 @@ bool MyLog::is_has_logger() {
 
 QString get_format_data_time() {
     QString datatime = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss:zzz");
-    return datatime+" ";
+    return datatime;
 }
 
 void MyLog::log_out(const QString &msg) {
@@ -81,14 +83,22 @@ void MyLog::log_out(const QString &msg) {
     out_put_msg.append("#");
 
     //level str
-    if(is_show_level_str) out_put_msg.append(LevelToText(m_log_level));
+    if(is_show_level_str) out_put_msg.append(QString(LevelToText(m_log_level))+" ");
 
     //timestamp
-    if(is_show_timestamp) out_put_msg.append(get_format_data_time());
+    if(is_show_timestamp) out_put_msg.append(get_format_data_time()+" ");
 
-    //file name and line number
-    if(is_show_file_name_and_line_number)
-        out_put_msg.append(QString(m_file_name)+"-("+QString::number(m_line_number)+"): ");
+    if (is_show_file_name) {
+        out_put_msg.append(QString(m_file_name)+" ");
+    }
+
+    if (is_show_function_name) {
+        out_put_msg.append("["+QString(m_func_name)+"] ");
+    }
+
+    if(is_show_line_number) {
+        out_put_msg.append(QString::number(m_line_number)+": ");
+    }
 
     //log content
     out_put_msg.append(msg);
@@ -130,7 +140,7 @@ void MyLog::Helper::write_log()
     MyLogIns.mutex_log_count += 1;
 
     if(is_alive) {
-        MyLogIns.set_file_line(m_log_level, m_file_name, m_line_number);
+        MyLogIns.set_file_line(m_log_level, m_file_name, m_line_number, m_func_name);
         MyLogIns.log_out(buffer);
     }
     MyLogIns.mutex_log_count -= 1;
