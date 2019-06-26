@@ -11,6 +11,7 @@ Features:
 6. Support self-implement logger;
 7. MyLog is an open-source project;
 8. Logging strings includes "level", "timestamp", "code file name and line number"
+9. Using MyLog as easy as "qDebug()"
 
 Usage:
 you should init MyLog before you log-out any string.
