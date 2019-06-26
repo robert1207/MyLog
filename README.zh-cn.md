@@ -1,6 +1,6 @@
 MyLog 是一个给Qt应用程序使用的log库。MyLog稳定易用。
 
-*Read this in other languages: [English](README.md), [简体中文](README.zh-cn.md),*
+*使用其他语言阅读本文: [English](README.md), [简体中文](README.zh-cn.md),*
 
 特点：
 1. 颜色丰富的终端log打印；
@@ -48,7 +48,7 @@ MyLogIns.installer_logger(new MyLogNS::ConsoleLogger());
 这些配置默认都是开启的不需要配置。当你需要关闭其中的属性时，配置为false即可。
 ```cpp
 MyLogIns.is_enable_auto_new_line= true;     //default is true
-MyLogIns.is_show_level_str= true;             //default is true
+MyLogIns.is_show_level_str= true;           //default is true
 MyLogIns.is_show_timestamp= true;           //default is true
 MyLogIns.is_show_file_name_and_line_number= true;    //default is true
 ```
