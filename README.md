@@ -47,11 +47,8 @@ MyLogIns.installer_logger(new MyLogNS::ConsoleLogger());
 4. Features control variables
 using the variables when you need change the features only.
 ```cpp
-MyLogIns.is_enable_info = true;             //default is true
-MyLogIns.is_enable_debug= true;             //default is true
-MyLogIns.is_enable_error= true;             //default is true
 MyLogIns.is_enable_auto_new_line= true;     //default is true
-MyLogIns.is_show_level_str= true;             //default is true
+MyLogIns.is_show_level_str= true;           //default is true
 MyLogIns.is_show_timestamp= true;           //default is true
 MyLogIns.is_show_file_name_and_line_number= true;    //default is true
 ```
