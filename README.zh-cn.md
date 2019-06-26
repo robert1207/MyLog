@@ -63,6 +63,8 @@ MyLogIns.is_show_file_name_and_line_number= true;    //default is true
 I << "str value=" << 1;     //log info
 D << "str value=" << 2;     //log debug
 E << "str value=" << 3;     //log error
+D << "Date:" << QDate::currentDate();
+D << "Types:" << QString("String") << QChar('x') << QRect(0, 10, 50, 40);
 ```
 6. 继承接口实现自己的打印记录器
 接口类在文件”logger\_interface.h”中。
