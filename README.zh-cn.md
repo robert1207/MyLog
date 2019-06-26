@@ -102,7 +102,8 @@ public:
     NetLogger();
     virtual void open();//安装记录器的时候被调用，用于初始化
     virtual void close();//在程序关闭的时候被调用，用于关闭文件
-    virtual void write(MyLogNS::LogLevel level, const QString &msg, bool is_shift_to_next_line);//参数分别是:打印等级，打印字符串，是否自动换行
+    virtual void write(MyLogNS::LogLevel level, const QString &msg, bool is_shift_to_next_line);
+    //参数分别是:打印等级，打印字符串，是否自动换行
 };
 ```
 3. 使用你自己制作的记录器
