@@ -10,9 +10,8 @@ MyLog is a log-lib for Qt applications. MyLog is stable and easy to use.
 5. Support write log into a file, console and self-made-logger;
 6. Support self-implement logger;
 7. MyLog is an open-source project;
-8. Logging strings includes "level", "timestamp", "code file name and line number"
-9. Using MyLog as easy as "qDebug()"
-10. Support log code-file\_name, function-name, line-number
+8. Using MyLog is as easy as "qDebug()" and as powerfull as "qDebug()"(Cause MyLog is base on QDebug class);
+9. Could log(output) extra details, such as "level", "timestamp", "code file name" , "function name", "line number";
 
 # Usage
 you should init MyLog before you log-out any string.
