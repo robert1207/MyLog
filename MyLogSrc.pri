@@ -20,6 +20,8 @@ message("MyLog_src_attached")
 #DEFINES += MYLOG_NO_D_OUTPUT
 #DEFINES += MYLOG_NO_E_OUTPUT
 
+CONFIG += thread exceptions rtti stl
+
 INCLUDEPATH += $$PWD/src/
 
 SOURCES += \

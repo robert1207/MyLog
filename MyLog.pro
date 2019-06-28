@@ -14,14 +14,23 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-QT       -= gui
-
 TARGET = MyLog
 TEMPLATE = lib
 #Application version
 VERSION = 1.0.1
 
-DEFINES += MYLOG_LIBRARY
+CONFIG += warn_on thread exceptions rtti stl
+QT -= gui
+QT += core
+
+OBJECTS_DIR = _build/obj
+MOC_DIR = _build
+win32 {
+    DESTDIR = $$OUT_PWD
+}
+
+#static config
+include($$PWD/config.pri)
 
 SOURCES += \
         src/console_logger.cpp \
@@ -37,7 +46,6 @@ HEADERS += \
         src/logger_interface.h \
         src/my_log.h \
         src/my_log_export.h \
-        src/mylog_global.h  \
         src/printf_color.h \
         src/singletone/call_once.h \
         src/singletone/singleton.h
@@ -50,6 +58,6 @@ DISTFILES += \
         README.zh-cn.md
 
 unix {
-    target.path = /usr/lib
+    target.path = /usr/local/lib
     INSTALLS += target
 }
