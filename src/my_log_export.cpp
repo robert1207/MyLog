@@ -15,20 +15,20 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "my_log.h"
+#include "my_log_export.h"
 
 #include <QDebug>
 #include <QString>
 #include <QDateTime>
 
-#include "my_log_export.h"
+#include "my_log.h"
 
 namespace MyLogNS {
 
 /***************************** Logger ****************************/
 static bool is_alive = false;
 
-MyLog::MyLog() :
+MyLogExport::MyLogExport() :
     is_enable_auto_new_line(true),
     is_show_level_str(true),
     is_show_timestamp(true),
@@ -41,7 +41,7 @@ MyLog::MyLog() :
     is_alive = true;
 }
 
-MyLog::~MyLog() {
+MyLogExport::~MyLogExport() {
 
     is_alive = false;
     while(mutex_log_count != 0) {;}
@@ -57,14 +57,14 @@ MyLog::~MyLog() {
     delete mutex;
 }
 
-void MyLog::installer_logger(LoggerInterface *logger) {
+void MyLogExport::installer_logger(LoggerInterface *logger) {
     if(logger != nullptr) {
         logger->open();
         m_logger_list.append(logger);
     }
 }
 
-bool MyLog::is_has_logger() {
+bool MyLogExport::is_has_logger() {
     if(m_logger_list.size() > 0) {
         return true;
     } else {
@@ -77,7 +77,7 @@ QString get_format_data_time() {
     return datatime;
 }
 
-void MyLog::log_out(const QString &msg) {
+void MyLogExport::log_out(const QString &msg) {
 
     QString out_put_msg;
 
@@ -107,7 +107,7 @@ void MyLog::log_out(const QString &msg) {
     do_write(m_log_level, out_put_msg);
 }
 
-void MyLog::do_write(LogLevel log_level, const QString &msg) {
+void MyLogExport::do_write(LogLevel log_level, const QString &msg) {
     foreach(LoggerInterface *p, m_logger_list) {
         if(p != nullptr) {
             p->write(log_level, msg, is_enable_auto_new_line);
@@ -118,7 +118,7 @@ void MyLog::do_write(LogLevel log_level, const QString &msg) {
 
 /***************************** Helper ****************************/
 
-MyLog::Helper::~Helper()
+MyLogExport::Helper::~Helper()
 {
     if (m_no_log) return;
 
@@ -135,7 +135,7 @@ MyLog::Helper::~Helper()
     }
 }
 
-void MyLog::Helper::write_log()
+void MyLogExport::Helper::write_log()
 {
     MyLogIns.mutex->lock();
     MyLogIns.mutex_log_count += 1;

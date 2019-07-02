@@ -18,98 +18,29 @@
 #ifndef MY_LOG_H
 #define MY_LOG_H
 
-#include <QString>
-#include <QTextStreamFunction>
-#include <QDebug>
-#include <QThreadPool>
+#include "my_log_export.h"
 
-#include "singletone/singleton.h"
-#include "log_level.h"
-#include "logger_interface.h"
+#define MyLogIns Singleton<MyLogNS::MyLogExport>::instance()
 
-//include header for user
-#include "console_logger.h"
-#include "file_logger.h"
+#define I MyLogNS::MyLogExport::Helper().set_file_line(__FILE__, __LINE__, Q_FUNC_INFO).info()
+#define D MyLogNS::MyLogExport::Helper().set_file_line(__FILE__, __LINE__, Q_FUNC_INFO).debug()
+#define E MyLogNS::MyLogExport::Helper().set_file_line(__FILE__, __LINE__, Q_FUNC_INFO).error()
 
-namespace MyLogNS {
+#define MYLOG_NO_LOG_MACRO  MyLogNS::MyLogExport::Helper().no_log()
 
-class MyLog
-{
-public:
-    MyLog();
-    ~MyLog();
 
-    //each log calling is using an object of 'Helper'
-    class Helper
-    {
-    public:
-        explicit Helper() :
-            qtDebug(&buffer),
-            m_no_log(false)
-        {}
-        ~Helper();
-        //making sure the single 'Helper' object is hold itself's log settings at multi-thread
-        inline Helper& set_file_line(const char *file, int line, const char *func_name) {
-            m_file_name = file;
-            m_line_number = line;
-            m_func_name = func_name;
-            return *this;
-        }
+#if defined(MYLOG_NO_I_OUTPUT)
+#  undef I
+#  define I MYLOG_NO_LOG_MACRO
+#endif
+#if defined(MYLOG_NO_D_OUTPUT)
+#  undef D
+#  define D MYLOG_NO_LOG_MACRO
+#endif
+#if defined(MYLOG_NO_E_OUTPUT)
+#  undef E
+#  define E MYLOG_NO_LOG_MACRO
+#endif
 
-        QDebug& info() { m_log_level = LogLevel::Info; return qtDebug; }
-        QDebug& debug(){ m_log_level = LogLevel::Debug; return qtDebug; }
-        QDebug& error(){ m_log_level = LogLevel::Error; return qtDebug; }
-        QDebug& no_log(){ m_no_log = true; return qtDebug; }
-    private:
-        void write_log();
-        QString buffer;
-        QDebug qtDebug;
-
-        //code file name and line number
-        LogLevel m_log_level;
-        const char *m_file_name;
-        int m_line_number;
-        const char *m_func_name;
-
-        bool m_no_log;
-    };
-
-public:
-    bool is_enable_auto_new_line;
-    bool is_show_level_str;
-    bool is_show_timestamp;
-    bool is_show_file_name;
-    bool is_show_function_name;
-    bool is_show_line_number;
-
-    int mutex_log_count;
-    QMutex *mutex;
-
-    void installer_logger(LoggerInterface *logger);
-    bool is_has_logger();
-
-    void log_out(const QString &msg);
-    void do_write(LogLevel log_level, const QString &msg);
-
-    inline void set_file_line(LogLevel level, const char *file, int line, const char *func_name) {
-        m_log_level = level;
-        m_file_name = file;
-        m_line_number = line;
-        m_func_name = func_name;
-    }
-
-private:
-
-    //code file name and line number
-    LogLevel m_log_level;
-    const char *m_file_name;
-    int m_line_number;
-    const char *m_func_name;
-
-    QList<LoggerInterface *> m_logger_list;
-
-};
-
-} //namespace MyLogNS
 
 #endif // MY_LOG_H

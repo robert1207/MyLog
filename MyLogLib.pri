@@ -25,7 +25,7 @@ CONFIG += thread exceptions rtti stl
 INCLUDEPATH += $$PWD/src/
 
 HEADERS += \
-        $$PWD/src/my_log_export.h \
+        $$PWD/src/my_log.h \
         $$PWD/src/logger_interface.h
 
 LIBS += \

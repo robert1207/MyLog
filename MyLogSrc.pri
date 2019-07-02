@@ -28,7 +28,7 @@ SOURCES += \
         $$PWD/src/console_logger.cpp \
         $$PWD/src/file_logger.cpp \
         $$PWD/src/log_level.cpp \
-        $$PWD/src/my_log.cpp \
+        $$PWD/src/my_log_export.cpp \
         $$PWD/src/logger_interface.cpp
 
 HEADERS += \

@@ -37,7 +37,7 @@ SOURCES += \
         src/file_logger.cpp \
         src/log_level.cpp \
         src/logger_interface.cpp \
-        src/my_log.cpp
+        src/my_log_export.cpp
 
 HEADERS += \
         src/console_logger.h \
