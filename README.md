@@ -29,7 +29,7 @@ include($$PWD/my_lib/MyLog/MyLogLib.pri)
 ```
 2. Include header
 ```cpp
-#include "my_log_export.h"
+#include "my_log.h"
 ```
 3. Init for file log
 ```cpp

@@ -29,7 +29,7 @@ include($$PWD/my_lib/MyLog/MyLogLib.pri)
 ```
 2. 包括头文件
 ```cpp
-#include "my_log_export.h"
+#include "my_log.h"
 ```
 3. 安装文件打印记录器
 ```cpp
