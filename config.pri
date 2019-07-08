@@ -13,9 +13,9 @@ QT += core
 #output
 OBJECTS_DIR = _build/obj
 MOC_DIR = _build
-win32 {
-    DESTDIR = $$OUT_PWD
-}
+DESTDIR = $$PWD
+#DESTDIR = $$OUT_PWD
+
 
 # test config
 LIST = thread exceptions rtti stl
