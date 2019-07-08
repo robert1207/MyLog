@@ -1,4 +1,4 @@
-MyLog is a log-lib for Qt applications. MyLog is stable and easy to use.
+MyLog is a log-lib for Qt cross-platform applications. MyLog is stable and easy to use.
 
 *Read this in other languages: [English][1], [简体中文][2]*
 
@@ -77,7 +77,7 @@ you can find the macro at “MyLogSrc.pri” or “MyLogLib.pri”
 ```
 8. Log  example on console
 
-![out-put-example](https://github.com/robert1207/MyLog/blob/master/doc/out_put_example.png)
+![out-put-example][image-1]
 
 # Making your own Logger
 1. Method of making a self-implemented logger
@@ -114,3 +114,5 @@ MyLogIns.installer_logger(new  NetLogger());
 
 [1]:	README.md
 [2]:	README.zh-cn.md
+
+[image-1]:	https://github.com/robert1207/MyLog/blob/master/doc/out_put_example.png

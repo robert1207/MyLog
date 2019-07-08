@@ -1,4 +1,4 @@
-MyLog 是一个给Qt应用程序使用的log库。MyLog稳定易用。
+MyLog 是一个给Qt跨平台应用程序使用的log库。MyLog稳定易用。
 
 *使用其他语言阅读本文: [English][1], [简体中文][2]*
 
@@ -77,7 +77,7 @@ D << "Types:" << QString("String") << QChar('x') << QRect(0, 10, 50, 40);
 ```
 8. 输出效果
 
-![out-put-example](https://github.com/robert1207/MyLog/blob/master/doc/out_put_example.png)
+![out-put-example][image-1]
 
 # 实现自己的打印记录器
 1. 继承接口实现自己的打印记录器
@@ -114,3 +114,5 @@ MyLogIns.installer_logger(new  NetLogger());
 
 [1]:	README.md
 [2]:	README.zh-cn.md
+
+[image-1]:	https://github.com/robert1207/MyLog/blob/master/doc/out_put_example.png
