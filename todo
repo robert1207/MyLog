@@ -3,3 +3,4 @@
 3. user can config timestamp format
 4. user can config out-put log file's string codec.
 5. user can make a self-define log-string-formater
+6. add support of "void debug(const char *msg, ...)"

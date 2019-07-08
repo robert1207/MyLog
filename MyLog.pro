@@ -14,23 +14,11 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-TARGET = MyLog
-TEMPLATE = lib
-#Application version
-VERSION = 1.0.1
-
-CONFIG += warn_on thread exceptions rtti stl
-QT -= gui
-QT += core
-
-OBJECTS_DIR = _build/obj
-MOC_DIR = _build
-win32 {
-    DESTDIR = $$OUT_PWD
-}
-
-#static config
 include($$PWD/config.pri)
+
+TARGET = mylog
+TEMPLATE = lib
+VERSION = 1.0.1
 
 SOURCES += \
         src/console_logger.cpp \

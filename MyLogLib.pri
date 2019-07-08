@@ -29,7 +29,7 @@ HEADERS += \
         $$PWD/src/logger_interface.h
 
 LIBS += \
-        -L$$PWD -lMyLog
+        -L$$PWD -lmylog
 
 OTHER_FILES += \
         $$PWD/todo \
