@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-message("MyLog_lib_been_attached")
+message("mylog_lib_been_attached")
 
 #DEFINES += MYLOG_NO_I_OUTPUT
 #DEFINES += MYLOG_NO_D_OUTPUT

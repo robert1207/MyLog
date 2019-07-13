@@ -40,7 +40,9 @@ HEADERS += \
         $$PWD/src/printf_color.h \
         $$PWD/src/singletone/call_once.h \
         $$PWD/src/singletone/singleton.h \
-        $$PWD/src/my_log_export.h
+        $$PWD/src/my_log_export.h \
+        $$PWD/src/my_log_export_global.h
+        
 
 OTHER_FILES += \
         $$PWD/todo \

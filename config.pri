@@ -13,6 +13,7 @@ QT += core
 #output
 OBJECTS_DIR = _build/obj
 MOC_DIR = _build
+#mv built lib into *.pro's directory
 DESTDIR = $$PWD
 #DESTDIR = $$OUT_PWD
 

@@ -18,6 +18,8 @@
 #ifndef MY_LOG_EXPORT_H
 #define MY_LOG_EXPORT_H
 
+#include "my_log_export_global.h"
+
 #include <QString>
 #include <QTextStreamFunction>
 #include <QDebug>
@@ -75,12 +77,12 @@ public:
     };
 
 public:
-    bool is_enable_auto_new_line;
-    bool is_show_level_str;
-    bool is_show_timestamp;
-    bool is_show_file_name;
-    bool is_show_function_name;
-    bool is_show_line_number;
+    bool is_enable_auto_new_line;       //default true
+    bool is_show_level_str;                 //default true
+    bool is_show_timestamp;                 //default true
+    bool is_show_file_name;                 //default false
+    bool is_show_function_name;          //default true
+    bool is_show_line_number;             //default true
 
     int mutex_log_count;
     QMutex *mutex;
