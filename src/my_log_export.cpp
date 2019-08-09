@@ -94,11 +94,11 @@ void MyLogExport::log_out(const QString &msg) {
     }
 
     if (is_show_function_name) {
-        out_put_msg.append("["+QString(m_func_name)+"] ");
+        out_put_msg.append("[" + QString(m_func_name) + "] ");
     }
 
     if(is_show_line_number) {
-        out_put_msg.append(QString::number(m_line_number)+": ");
+        out_put_msg.append("L:" + QString::number(m_line_number) + ": ");
     }
 
     //log content
