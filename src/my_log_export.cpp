@@ -131,7 +131,7 @@ MyLogExport::Helper::~Helper()
     }
     catch(std::exception&) {
         Q_ASSERT(false);// catch to add details about the crash
-        throw;
+        //throw;
     }
 }
 

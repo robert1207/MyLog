@@ -29,6 +29,7 @@ const char* LevelToText(LogLevel level)
         case Error:
             return level_error;
     }
+     return level_info;
 }
 
 } //namespace MyLogNS

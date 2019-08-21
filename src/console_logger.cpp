@@ -39,6 +39,7 @@ void ConsoleLogger::close() {
 }
 
 void ConsoleLogger::write(LogLevel level, const QString &msg, bool is_shift_to_next_line) {
+
     if (level == Info) {
         printf(YELLOW"%s" NONE, qPrintable(msg));
     } else if (level == Debug) {

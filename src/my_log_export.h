@@ -18,8 +18,6 @@
 #ifndef MY_LOG_EXPORT_H
 #define MY_LOG_EXPORT_H
 
-#include "my_log_export_global.h"
-
 #include <QString>
 #include <QTextStreamFunction>
 #include <QDebug>

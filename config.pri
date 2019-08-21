@@ -1,7 +1,11 @@
 #Config
-#CONFIG += static
+CONFIG += static
 CONFIG += release
 macx {
+    CONFIG += c++11
+}
+
+win32 {
     CONFIG += c++11
 }
 CONFIG += warn_on thread exceptions rtti stl

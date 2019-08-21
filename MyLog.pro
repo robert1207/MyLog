@@ -18,7 +18,7 @@ include($$PWD/config.pri)
 
 TARGET = mylog
 TEMPLATE = lib
-VERSION = 1.0.1
+#VERSION = 1.0.1
 
 DEFINES += MY_LOG_LIBRARY
 
@@ -36,7 +36,6 @@ HEADERS += \
         src/logger_interface.h \
         src/my_log.h \
         src/my_log_export.h \
-        src/my_log_export_global.h \
         src/printf_color.h \
         src/singletone/call_once.h \
         src/singletone/singleton.h
