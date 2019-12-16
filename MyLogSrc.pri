@@ -29,7 +29,8 @@ SOURCES += \
         $$PWD/src/file_logger.cpp \
         $$PWD/src/log_level.cpp \
         $$PWD/src/my_log_export.cpp \
-        $$PWD/src/logger_interface.cpp
+        $$PWD/src/logger_interface.cpp \
+        $$PWD/src/singleton.cpp
 
 HEADERS += \
         $$PWD/src/console_logger.h \
@@ -38,8 +39,7 @@ HEADERS += \
         $$PWD/src/log_level.h \
         $$PWD/src/logger_interface.h \
         $$PWD/src/printf_color.h \
-        $$PWD/src/singletone/call_once.h \
-        $$PWD/src/singletone/singleton.h \
+        $$PWD/src/singleton.h \
         $$PWD/src/my_log_export.h
 
 OTHER_FILES += \

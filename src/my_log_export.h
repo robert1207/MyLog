@@ -46,7 +46,9 @@ public:
         explicit Helper() :
             qtDebug(&buffer),
             m_no_log(false)
-        {}
+        {
+            //qDebug() << "this q ="<< this;
+        }
         ~Helper();
         //making sure the single 'Helper' object is hold itself's log settings at multi-thread
         inline Helper& set_file_line(const char *file, int line, const char *func_name) {

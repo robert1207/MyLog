@@ -19,8 +19,12 @@
 #define MY_LOG_H
 
 #include "my_log_export.h"
+#include "singleton.h"
 
-#define MyLogIns Singleton<MyLogNS::MyLogExport>::instance()
+//#define MyLogIns Singleton<MyLogNS::MyLogExport>::instance()
+
+#define MyLogIns MyLogNS::Singleton::GetInstance()
+
 
 #define I MyLogNS::MyLogExport::Helper().set_file_line(__FILE__, __LINE__, Q_FUNC_INFO).info()
 #define D MyLogNS::MyLogExport::Helper().set_file_line(__FILE__, __LINE__, Q_FUNC_INFO).debug()
